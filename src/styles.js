@@ -23,8 +23,8 @@ const Description = styled.h4`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    color: ${props => props.theme.black};
-    background-color: ${props => props.theme.white}
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.backgroundColor}
   }
 `;
 
@@ -32,6 +32,15 @@ const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+`;
+
+const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${props => props.theme.mainColor};
+  color: ${props => props.theme.backgroundColor};
 `;
 
 const Title = styled.h1`
@@ -51,5 +60,6 @@ export {
   GlobalStyle,
   ListWrapper,
   Title,
-  ShopImage
+  ShopImage,
+  ThemeButton
 };
