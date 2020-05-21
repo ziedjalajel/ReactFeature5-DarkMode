@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+
+// Components
+import CookieList from "./components/CookieList";
+
+// Styling
+import { Description, GlobalStyle, ShopImage, Title } from "./styles";
+
+const theme = {
+  mainColor: "#242424", // main font color
+  backgroundColor: "#fefafb", // main background color
+  pink: "#ff85a2"
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <>
+        <Title>Cookies and Beyond</Title>
+        <Description>Where cookie maniacs gather</Description>
+        <ShopImage
+          alt="cookie shop"
+          src="https://i.pinimg.com/originals/8f/cf/71/8fcf719bce331fe39d7e31ebf07349f3.jpg"
+        />
+      </>
+      <CookieList />
+    </ThemeProvider>
   );
 }
 
