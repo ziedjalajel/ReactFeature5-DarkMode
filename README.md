@@ -160,7 +160,7 @@ const ThemeButton = styled.button`
 3. We need a state that changes between `light` and `dark`, with an initial value of `light`.
 
 ```javascript
-let [theme, setTheme] = useState("light");
+let [currentTheme, setCurrentTheme] = useState("light");
 ```
 
 4. Now let's create our event handler that toggles between the values `light` and `dark`
@@ -169,46 +169,47 @@ let [theme, setTheme] = useState("light");
 const toggleTheme = () => {
   if (theme === "light") setTheme("dark");
   else setTheme("light");
-  alert(theme);
 };
 ```
 
-3. When clicking on this button, we want to change our website's theme from light to dark. Let's add an `onClick` that calls `toggleTheme`
+5. Let's clean it up using an itenary operator:
+
+```javascript
+const toggleTheme = () =>
+    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+```
+
+
+6. When clicking on this button, we want to change our website's theme from light to dark. Let's add an `onClick` that calls `toggleTheme`
 
 ```jsx
 <ThemeButton onClick={toggleTheme}>Dark Mode</ThemeButton>
 ```
 
-4. We're getting our alert! But how can we apply the change? Let's start with defining our `lightTheme` and `darkTheme`.
+7. Let's check React Dev Tools to see if the state is changing. It is!
+
+8.  But how can we apply the change? Let's start with defining our `lightTheme` and `darkTheme`.
 
 ```javascript
-const lightTheme = {
-  mainColor: "#242424", // main font color
-  backgroundColor: "#fefafb", // main background color
-  pink: "#ff85a2"
-};
-
-const darkTheme = {
-  mainColor: "#fefafb", // main font color
-  backgroundColor: "#242424", // main background color
-  pink: "#ff85a2"
+const theme = {
+  light: {
+    mainColor: "#242424", // main font color
+    backgroundColor: "#fefafb", // main background color
+    pink: "#ff85a2",
+  },
+  dark: {
+    mainColor: "#fefafb", // main font color
+    backgroundColor: "#242424", // main background color
+    pink: "#ff85a2",
+  },
 };
 ```
 
-5. Now, when `theme`'s value is `light` we will pass `lightTheme` to `ThemeProvider` and vise versa.
-
-6. To do that, we will use a conditional operator. If `theme` is equal to `light`, the return value of the conditional operator is `lightTheme`, else the return value is `darkTheme`.
+9. Now, when `currentTheme`'s value is `light` we will pass the `light` object to `ThemeProvider` and vise versa.
 
 ```jsx
-<ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+<ThemeProvider theme={theme[currentTheme]}>
 ```
 
-7. It's working!!!!!! We got our dark mode theme! Woohooo! Even the button's color is changing.
+10. It's working!!!!!! We got our dark mode theme! Woohooo! Even the button's color is changing.
 
-8. But the word `Dark` in our button is not changing, it's weird to have it always saying `Dark Mode`. Let's give it a condition! If `theme` is equal to `light`, the return value of the conditional operator is `Dark`, else it will be `Light`.
-
-```jsx
-<ThemeButton onClick={toggleTheme}>
-  {theme === "light" ? "Dark" : "Light"} Mode
-</ThemeButton>
-```
