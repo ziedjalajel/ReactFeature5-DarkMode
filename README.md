@@ -8,7 +8,7 @@
 - Hooks: `useState`
 - Conditional Operator
 
-(Add discussion link here)
+[React 4 - Events & States](https://docs.google.com/presentation/d/1XD1QxGNfEP_BmNRlHPyP2h5WTj6gi4ql0WemniTw4vY/edit#slide=id.g4424c630a5_0_7)
 
 ## Step 1: Counter
 
