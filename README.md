@@ -112,7 +112,7 @@ Let's create a counter just to see how events and state works.
 16. In JavaScript, to save two arguments at the same time we use the following syntax:
 
     ```javascript
-    let [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(0);
     ```
 
 17. The first returned value is saved in `counter`, while the second returned value which is the function saved in `setCounter`. The naming convention for the function is `set` followed by the state name which is `counter` in this case.
@@ -160,7 +160,7 @@ Now how can we use `state`? We can do a lot with state, let's start with adding 
 3. We need a state that changes between `light` and `dark`, with an initial value of `light`.
 
    ```javascript
-   let [currentTheme, setCurrentTheme] = useState("light");
+   const [currentTheme, setCurrentTheme] = useState("light");
    ```
 
 4. Now let's create our event handler that toggles between the values `light` and `dark`
