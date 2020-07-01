@@ -86,11 +86,11 @@ Let's create a counter just to see how events and state works.
 11. Let's pass the method to the events:
 
     ```jsx
-    <button onClick={handleIncrement}>Increment</button>;
-    {
-      counter;
-    }
-    <button onClick={handleDecrement}>Decrement</button>;
+    <>
+      <button onClick={handleIncrement}>Increment</button>
+      {counter}
+      <button onClick={handleDecrement}>Decrement</button>
+    </>
     ```
 
 12. Nothing happened! Unfortunately, we can't change things on the screen directly. This is when the magic of React comes into place. We need to use something called `useState`. Basically, anything that you want to change on the screen dynamically must be using `useState`.
