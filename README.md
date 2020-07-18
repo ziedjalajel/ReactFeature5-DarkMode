@@ -128,9 +128,10 @@ Let's create a counter just to see how events and state works.
 
 20. Finally it's working!
 
+We built those buttons and the counter only to show events and how we can use them. Delete the JSX for the two buttons and counter, the `counter` and `setCounter` and `useState` and the `handleIncrement` and `handleDecrement` functions.
+
 ## Step 2: Dark Mode Button
 
-We built those buttons and the counter only to show events and how we can use them. Delete the JSX for the two buttons and counter, the `counter` and `setCounter` and `useState` and the `handleIncrement` and `handleDecrement` functions.
 
 Now how can we use `state`? We can do a lot with state, let's start with adding a dark mode to our website.
 
